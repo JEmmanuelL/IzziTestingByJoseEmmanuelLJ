@@ -1,0 +1,192 @@
+/**
+ * Estilos del componente IpTable
+ * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ */
+
+.ip-table {
+  padding: 0 1.5rem 1.5rem;
+}
+
+/* Estado vacío */
+.ip-table__empty {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: #888;
+}
+
+.ip-table__empty-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ip-table__empty h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: #555;
+}
+
+.ip-table__empty p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Barra de filtro */
+.ip-table__filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.ip-table__filter-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.ip-table__filter-input:focus {
+  border-color: #6e8efb;
+  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.15);
+}
+
+.ip-table__filter-count {
+  font-size: 0.85rem;
+  color: #888;
+  white-space: nowrap;
+}
+
+/* Contenedor de la tabla con scroll horizontal */
+.ip-table__wrapper {
+  overflow-x: auto;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.ip-table__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.ip-table__table thead {
+  background: #f8f9fa;
+}
+
+.ip-table__table th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #444;
+  border-bottom: 2px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.ip-table__table td {
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid #f0f0f0;
+  color: #555;
+}
+
+.ip-table__table tbody tr:hover {
+  background-color: #f5f7ff;
+}
+
+.ip-table__ip-cell {
+  font-family: monospace;
+  font-weight: 600;
+  color: #333;
+}
+
+.ip-table__no-results {
+  text-align: center;
+  padding: 2rem !important;
+  color: #999;
+  font-style: italic;
+}
+
+/* Badges de nivel de amenaza */
+.ip-table__threat {
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.ip-table__threat--safe {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.ip-table__threat--warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.ip-table__threat--danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.ip-table__threat--unknown {
+  background-color: #e2e3e5;
+  color: #383d41;
+}
+
+/* Botón de eliminar */
+.ip-table__delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.3rem;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.ip-table__delete-btn:hover {
+  background-color: #f8d7da;
+}
+
+/* Paginación */
+.ip-table__pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+}
+
+.ip-table__page-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.ip-table__page-btn:hover:not(:disabled) {
+  background: #6e8efb;
+  color: white;
+  border-color: #6e8efb;
+}
+
+.ip-table__page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ip-table__page-info {
+  font-size: 0.85rem;
+  color: #666;
+}
