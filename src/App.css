@@ -1,8 +1,11 @@
+/**
+ * Estilos principales de la aplicación
+ * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ */
+
 .app-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
+  min-height: 100vh;
+  background-color: #f5f6fa;
 }
 
 .app-header {
@@ -11,24 +14,16 @@
   color: white;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  z-index: 10;
 }
 
 .app-header h1 {
   margin: 0;
   font-size: 2rem;
   font-weight: 700;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .app-header p {
   margin: 0.5rem 0 0;
   font-size: 1rem;
   opacity: 0.9;
-}
-
-.map-wrapper {
-  flex: 1;
-  position: relative;
-  width: 100%;
 }
