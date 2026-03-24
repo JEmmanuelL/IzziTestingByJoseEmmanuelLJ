@@ -1,0 +1,36 @@
+/**
+ * Estilos del componente IpMap
+ * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ */
+
+.ip-map {
+  position: relative;
+  height: 350px;
+  margin: 0 1.5rem 1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.ip-map__container {
+  z-index: 1;
+}
+
+/* Overlay cuando no hay IP seleccionada */
+.ip-map__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  text-align: center;
+  padding: 0.75rem;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.ip-map__overlay p {
+  margin: 0;
+  font-size: 0.9rem;
+}
