@@ -1,29 +1,42 @@
 /**
- * Estilos principales de la aplicación
- * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ * App.css — Estilos del contenedor principal y header
+ * Diseño premium con glassmorphism y gradientes
  */
 
 .app-container {
   min-height: 100vh;
-  background-color: #f5f6fa;
+  background: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(124, 92, 252, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(124, 92, 252, 0.04) 0%, transparent 50%);
+  padding-bottom: 2rem;
 }
 
+/* ─── Header ─── */
 .app-header {
-  background: linear-gradient(135deg, #6e8efb, #a777e3);
-  padding: 1.5rem;
-  color: white;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-glass);
+  padding: 2rem 1.5rem;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 0.6s ease-out;
 }
 
 .app-header h1 {
-  margin: 0;
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
 }
 
 .app-header p {
-  margin: 0.5rem 0 0;
-  font-size: 1rem;
-  opacity: 0.9;
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  font-weight: 300;
 }

@@ -1,19 +1,20 @@
 /**
- * Estilos del componente IpSearchBar
- * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ * IpSearchBar.css — Estilos premium del buscador
+ * Glassmorphism + neón glow + animaciones
  */
 
 .search-bar {
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 1rem;
   display: flex;
   justify-content: center;
+  animation: fadeInUp 0.6s ease-out 0.1s both;
 }
 
 .search-bar__form {
   display: flex;
   gap: 0.75rem;
   width: 100%;
-  max-width: 600px;
+  max-width: 650px;
   align-items: stretch;
 }
 
@@ -24,44 +25,76 @@
 
 .search-bar__input {
   width: 100%;
-  padding: 0.85rem 1rem;
+  padding: 0.9rem 1.2rem;
   font-size: 1rem;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 400;
+  color: var(--text-primary);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all var(--transition);
   box-sizing: border-box;
+  letter-spacing: 0.02em;
+}
+
+.search-bar__input::placeholder {
+  color: var(--text-muted);
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  letter-spacing: 0;
 }
 
 .search-bar__input:focus {
-  border-color: #6e8efb;
-  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.15);
+  border-color: var(--accent-primary);
+  box-shadow: var(--shadow-glow);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .search-bar__input:disabled {
-  background-color: #f5f5f5;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
 .search-bar__button {
-  padding: 0.85rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.9rem 1.8rem;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
   font-weight: 600;
   color: white;
-  background: #6e8efb;
+  background: var(--accent-gradient);
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: all var(--transition);
   white-space: nowrap;
+  box-shadow: 0 4px 15px var(--accent-glow);
+  position: relative;
+  overflow: hidden;
+}
+
+.search-bar__button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity var(--transition);
 }
 
 .search-bar__button:hover:not(:disabled) {
-  background: #5a7de8;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px var(--accent-glow);
+}
+
+.search-bar__button:hover:not(:disabled)::before {
+  opacity: 1;
 }
 
 .search-bar__button:active:not(:disabled) {
@@ -69,27 +102,36 @@
 }
 
 .search-bar__button:disabled {
-  opacity: 0.7;
+  opacity: 0.6;
   cursor: not-allowed;
+  transform: none;
 }
 
 .search-bar__icon {
   font-size: 1.1rem;
 }
 
-/* Spinner de carga animado */
+/* Spinner con gradiente */
 .search-bar__spinner {
   display: inline-block;
   width: 20px;
   height: 20px;
-  border: 3px solid rgba(255, 255, 255, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
   border-top-color: white;
   border-radius: 50%;
   animation: spin 0.6s linear infinite;
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .search-bar__form {
+    flex-direction: column;
+  }
+  .search-bar__button {
+    justify-content: center;
   }
 }

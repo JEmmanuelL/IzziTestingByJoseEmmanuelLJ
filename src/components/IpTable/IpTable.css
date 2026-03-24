@@ -1,37 +1,45 @@
 /**
- * Estilos del componente IpTable
- * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ * IpTable.css — Estilos premium de la tabla
+ * Dark glassmorphism + badges neón + paginación estilizada
  */
 
 .ip-table {
   padding: 0 1.5rem 1.5rem;
+  animation: fadeInUp 0.6s ease-out 0.3s both;
 }
 
-/* Estado vacío */
+/* ─── Estado vacío ─── */
 .ip-table__empty {
   text-align: center;
-  padding: 3rem 1rem;
-  color: #888;
+  padding: 4rem 1.5rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
 }
 
 .ip-table__empty-icon {
-  font-size: 3rem;
+  font-size: 3.5rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .ip-table__empty h3 {
   margin: 0 0 0.5rem;
   font-size: 1.3rem;
-  color: #555;
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .ip-table__empty p {
   margin: 0;
   font-size: 0.95rem;
+  color: var(--text-secondary);
 }
 
-/* Barra de filtro */
+/* ─── Barra de filtro ─── */
 .ip-table__filter {
   display: flex;
   align-items: center;
@@ -43,119 +51,150 @@
 .ip-table__filter-input {
   flex: 1;
   min-width: 200px;
-  padding: 0.6rem 1rem;
+  padding: 0.65rem 1rem;
   font-size: 0.9rem;
-  border: 2px solid #ddd;
-  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all var(--transition);
+}
+
+.ip-table__filter-input::placeholder {
+  color: var(--text-muted);
 }
 
 .ip-table__filter-input:focus {
-  border-color: #6e8efb;
-  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.15);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 .ip-table__filter-count {
-  font-size: 0.85rem;
-  color: #888;
+  font-size: 0.8rem;
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
-/* Contenedor de la tabla con scroll horizontal */
+/* ─── Tabla ─── */
 .ip-table__wrapper {
   overflow-x: auto;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-glass);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .ip-table__table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
 }
 
 .ip-table__table thead {
-  background: #f8f9fa;
+  background: rgba(124, 92, 252, 0.08);
 }
 
 .ip-table__table th {
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
   text-align: left;
   font-weight: 600;
-  color: #444;
-  border-bottom: 2px solid #e0e0e0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-secondary);
+  border-bottom: 1px solid var(--border-glass);
   white-space: nowrap;
 }
 
 .ip-table__table td {
-  padding: 0.65rem 1rem;
-  border-bottom: 1px solid #f0f0f0;
-  color: #555;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: var(--text-secondary);
+  transition: background var(--transition);
+}
+
+.ip-table__table tbody tr {
+  transition: background var(--transition);
 }
 
 .ip-table__table tbody tr:hover {
-  background-color: #f5f7ff;
+  background-color: rgba(124, 92, 252, 0.06);
 }
 
 .ip-table__ip-cell {
-  font-family: monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 600;
-  color: #333;
+  color: var(--text-primary) !important;
+  font-size: 0.85rem;
 }
 
 .ip-table__no-results {
   text-align: center;
-  padding: 2rem !important;
-  color: #999;
+  padding: 2.5rem !important;
+  color: var(--text-muted) !important;
   font-style: italic;
 }
 
-/* Badges de nivel de amenaza */
+/* ─── Badges de amenaza ─── */
 .ip-table__threat {
-  padding: 0.25rem 0.6rem;
-  border-radius: 12px;
-  font-size: 0.8rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
   font-weight: 600;
   white-space: nowrap;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .ip-table__threat--safe {
-  background-color: #d4edda;
-  color: #155724;
+  background: rgba(0, 230, 118, 0.12);
+  color: var(--success);
+  border: 1px solid rgba(0, 230, 118, 0.25);
 }
 
 .ip-table__threat--warning {
-  background-color: #fff3cd;
-  color: #856404;
+  background: rgba(255, 193, 7, 0.12);
+  color: var(--warning);
+  border: 1px solid rgba(255, 193, 7, 0.25);
 }
 
 .ip-table__threat--danger {
-  background-color: #f8d7da;
-  color: #721c24;
+  background: rgba(255, 77, 106, 0.12);
+  color: var(--danger);
+  border: 1px solid rgba(255, 77, 106, 0.25);
 }
 
 .ip-table__threat--unknown {
-  background-color: #e2e3e5;
-  color: #383d41;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  border: 1px solid var(--border-glass);
 }
 
-/* Botón de eliminar */
+/* ─── Botón eliminar ─── */
 .ip-table__delete-btn {
-  background: none;
-  border: none;
+  background: rgba(255, 77, 106, 0.08);
+  border: 1px solid rgba(255, 77, 106, 0.15);
   cursor: pointer;
-  font-size: 1.2rem;
-  padding: 0.3rem;
-  border-radius: 4px;
-  transition: background 0.2s ease;
+  font-size: 1rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  line-height: 1;
 }
 
 .ip-table__delete-btn:hover {
-  background-color: #f8d7da;
+  background: rgba(255, 77, 106, 0.2);
+  border-color: var(--danger);
+  transform: scale(1.1);
 }
 
-/* Paginación */
+/* ─── Paginación ─── */
 .ip-table__pagination {
   display: flex;
   align-items: center;
@@ -166,27 +205,30 @@
 }
 
 .ip-table__page-btn {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 6px;
-  background: white;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  background: var(--bg-glass);
+  color: var(--text-secondary);
   cursor: pointer;
   font-size: 0.85rem;
-  transition: all 0.2s ease;
+  font-family: 'Inter', sans-serif;
+  transition: all var(--transition);
 }
 
 .ip-table__page-btn:hover:not(:disabled) {
-  background: #6e8efb;
+  background: var(--accent-primary);
   color: white;
-  border-color: #6e8efb;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 .ip-table__page-btn:disabled {
-  opacity: 0.5;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 
 .ip-table__page-info {
   font-size: 0.85rem;
-  color: #666;
+  color: var(--text-muted);
 }
