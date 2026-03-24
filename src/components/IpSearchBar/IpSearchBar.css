@@ -1,0 +1,95 @@
+/**
+ * Estilos del componente IpSearchBar
+ * Diseño limpio y funcional — el pulido premium se aplica en Fase 4
+ */
+
+.search-bar {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar__form {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 600px;
+  align-items: stretch;
+}
+
+.search-bar__input-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.search-bar__input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.search-bar__input:focus {
+  border-color: #6e8efb;
+  box-shadow: 0 0 0 3px rgba(110, 142, 251, 0.15);
+}
+
+.search-bar__input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.search-bar__button {
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background: #6e8efb;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.search-bar__button:hover:not(:disabled) {
+  background: #5a7de8;
+  transform: translateY(-1px);
+}
+
+.search-bar__button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.search-bar__button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.search-bar__icon {
+  font-size: 1.1rem;
+}
+
+/* Spinner de carga animado */
+.search-bar__spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
