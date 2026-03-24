@@ -35,7 +35,7 @@ Esta aplicación es una Single Page Application (SPA) construida con React y Vit
 ## Enlace a Producción
 
 La aplicación está desplegada de forma continua y automática (CI/CD) a través de GitHub Actions en Firebase Hosting.  
-Puedes acceder a la URL desde tus actions o en tu propio entorno de Firebase.
+Puedes acceder a la URL desde: https://testingizzi.web.app o https://testingizzi.firebaseapp.com
 
 ---
 
